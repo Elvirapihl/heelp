@@ -6,6 +6,7 @@ export function ShoppingCart({setChangePage, cart, setCart, products, setProduct
     }
     console.log(cart);
     function handleBuy(paymentConfirmation){
+        handleClearCart();
         setChangePage(paymentConfirmation)
     }
 
