@@ -1,36 +1,28 @@
-import {updateStock} from "../utils/fetchProducts.js";
-
-export function ShoppingCart({setChangePage, cart, setCart, products, setProducts, setCartItems}){
+export function ShoppingCart({setChangePage, cart, setCart, products, setProducts, setCartItems, onHandleStock}){
 
     let totalPrice = 0;
     for (const cartProduct of cart){
         totalPrice = totalPrice + cartProduct.price;
     }
-    
-
+    console.log(cart);
     function handleBuy(paymentConfirmation){
+        handleClearCart();
         setChangePage(paymentConfirmation)
-        updateStock(cart);
-        setCart([]);
-        setCartItems([]);
     }
 
-    function handleClearCart(productPage){
+    function handleClearCart(){
         const updatedProducts = products.map(product => {
 
-            const cartItem = cart.find(items => items.productname === product.productname);
+            const cartItem = cart.find(item => item.productname === product.productname);
             if (cartItem) {
-                return { ...product, stock: product.stock + cartItem.stock}; 
+                return { ...product, stock: product.stock}; 
             }
             return product;
         });
-        
 
-        
+        setProducts(updatedProducts);
         setCart([]);
-        setCartItems([]);
-        setProducts(updatedProducts); 
-        setChangePage(productPage);
+        setCartItems([]); 
     }
 
     return(
@@ -40,7 +32,7 @@ export function ShoppingCart({setChangePage, cart, setCart, products, setProduct
         <p>Din kundvagn är tom.</p>
       ) : (
         cart.map((product, index) => (
-          <p key={`${product.productname} - ${index}`}>
+          <p key={index}>
             {product.productname}: {product.price} SEK
           </p>
         ))
@@ -48,7 +40,7 @@ export function ShoppingCart({setChangePage, cart, setCart, products, setProduct
       <p> Totalpris: {totalPrice} SEK</p>
 
             <button onClick={() => handleBuy("success")}> Genomför köp </button>
-            <button onClick={() => handleClearCart("browsing")}> Töm kundvagn </button>
+            <button onClick={handleClearCart}> Töm kundvagn </button>
 
         </div>
     )

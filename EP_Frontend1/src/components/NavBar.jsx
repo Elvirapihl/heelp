@@ -6,7 +6,6 @@ export function NavBar({setChangePage, cartItems}){
 
     return(
         <>
-        <h1> Gott & blandat </h1>
         <div className="classButton">
 
         <button onClick={() => handleClick("browsing")}> Produkter </button>

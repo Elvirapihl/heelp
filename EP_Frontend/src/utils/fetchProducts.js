@@ -10,16 +10,30 @@ export async function fetchProducts() {
     return data;
 }
 
-export async function updateStock(newStock) {
-    const options = {
-        method: 'POST',
-        body: JSON.stringify(newStock),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
+export async function updateStock(products){
+    
+    const url = `http://localhost:3000/api/productslist/set`; 
+    
+    for(let i = 0 ; i<products.length ; i++){
+       delete products[i].image
+       delete products[i].price
+       delete products[i].product
     }
-    const res = await fetch (url, options);
-    const data = await res.json();
 
-    return data;
+
+    const res = await fetch(url,{
+        method: "POST",
+        body: JSON.stringify({
+          products:products
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+    console.log("done setting the amount");
+    
+   // const data = await res.json();
+   // console.log(data);
+   // return data;
+    
 }

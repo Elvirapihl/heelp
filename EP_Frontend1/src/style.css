@@ -6,7 +6,7 @@
 button{
     padding: 20px;
     margin-left: 50px;
-    background-color: rgb(191, 103, 147);
+    background-color: lightblue;
     border-radius: 20%;
 }
 body{
@@ -42,10 +42,4 @@ div{
 }
 img{
     max-width: 200px;
-}
-h1{
-    color: rgb(167, 78, 122);
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
 }

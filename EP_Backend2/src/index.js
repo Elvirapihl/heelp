@@ -13,11 +13,11 @@ app.get('/api/productslist', async (req, res) =>{
     const products = await db.getAllProducts()
     res.json(products);
 })
-app.post('/api/productslist/set', async(req, res) => {
-    let {products} = req.body
-    
-    db.updateStock(products)
-});
+app.post ('/api/productlist', async(req, res)=>{
+    await db.updateStock(req.body);
+    const items = await db.getAllProducts()
+    res.json(items);
+})
 
 app.listen(PORT, ()=> {
     console.log("Listening on port", PORT);
