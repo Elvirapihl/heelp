@@ -48,3 +48,11 @@ export function ProductCards({image, productname, price,stock,cart,setCart, onPu
     )
     
 }
+
+
+/**
+
+
+
+
+ */

@@ -14,9 +14,12 @@ app.get('/api/productslist', async (req, res) =>{
     res.json(products);
 })
 app.post('/api/productslist/set', async(req, res) => {
-    let {products} = req.body
-    
-    db.updateStock(products)
+
+    console.log(req.body);
+
+    db.updateStock(req.body)
+
+    res.json([]);
 });
 
 app.listen(PORT, ()=> {

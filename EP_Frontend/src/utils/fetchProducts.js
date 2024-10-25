@@ -11,6 +11,7 @@ export async function fetchProducts() {
 }
 
 export async function updateStock(products){
+  
     
     const url = `http://localhost:3000/api/productslist/set`; 
     
@@ -19,13 +20,15 @@ export async function updateStock(products){
        delete products[i].price
        delete products[i].product
     }
+    console.log(products);
 
+    // Kolla i postman vad du skickar med i requesten som body ("strings")
+    // Se till att det du skickar med här som body har exakt samma format, dvs en array med strings  
+    // Utgå ifrån Parametern products (som kommer från ditt cart state) och se till att du plockar ut produktnamnen och lägger in i en array.
 
     const res = await fetch(url,{
         method: "POST",
-        body: JSON.stringify({
-          products:products
-        }),
+        body: JSON.stringify([]),
         headers: {
           "Content-type": "application/json; charset=UTF-8"
         }
