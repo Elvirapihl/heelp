@@ -23,6 +23,7 @@ export function ShoppingCart({setChangePage, cart, setCart, products, setProduct
         setProducts(updatedProducts);
         setCart([]);
         setCartItems([]); 
+        setChangePage("browsing");
     }
 
     return(
