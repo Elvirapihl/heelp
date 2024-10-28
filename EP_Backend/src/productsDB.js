@@ -30,11 +30,5 @@ async function updateStock(products){
 
     }
     await fs.writeFile('./src/products.json', JSON.stringify(dbItems, null, 2));
-    //console.log(dbItems);
-    // for (let i = 0; i < products.length; i++) {
-    //     dbItems[i].stock = dbItems[i].stock - products[i].stock;
-    // } 
-
-    // await fs.writeFile('./src/products.json', JSON.stringify(dbItems, null, 2));
 }
 export{getAllProducts, updateStock};

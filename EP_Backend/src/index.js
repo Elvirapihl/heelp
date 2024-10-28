@@ -19,7 +19,7 @@ app.post('/api/productslist/set', async(req, res) => {
 
     db.updateStock(req.body)
 
-    res.json([]);
+    res.json([db.updateStock]);
 });
 
 app.listen(PORT, ()=> {

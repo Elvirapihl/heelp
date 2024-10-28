@@ -29,13 +29,6 @@ export function ProductCards({image, productname, price,stock,cart,setCart, onPu
                 onPurchase({ image, productname, price, stock });
             
         }
-        //console.log(cart)
-        /*setCart([...cart, { productname, price, stock, image }]);
-
-        if (stock > 0){
-            handlepurchase({image, productname, price, stock});
-        }*/
-        //console.log(handleCart);
     };
     return(
         <div className="productBox">
@@ -43,7 +36,7 @@ export function ProductCards({image, productname, price,stock,cart,setCart, onPu
             <h2>{productname}</h2>
             <p>Pris: {price} kr</p>
             <p>Lagersaldo: {stock} st</p>
-            <button className="buyButton" onClick={handleCart} disabled={stock === 0}>Köp</button>
+            <button className="buyButton" onClick={handleCart} disabled={stock === 0}>Lägg i kundvagn</button>
         </div>
     )
     
