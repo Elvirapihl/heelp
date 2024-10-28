@@ -2,33 +2,40 @@ export function ProductCards({image, productname, price,stock,cart,setCart, onPu
     function handleCart(){
 
 
-        const existingItem = cart.find(items => items.product === productname);
+        // const existingItem = cart.find(items => items.product === productname);
             
-            if (stock > 0) {
-                if (existingItem) {
+        //     if (stock > 0) {
+        //         if (existingItem) {
                     
-                    setCart(prevCart => {
-                        const updatedCart = prevCart.map(items =>
-                            items.productname === productname
-                                ? { ...items, stock: items.stock + 1 }
-                                : items
-                        );
+        //             setCart(prevCart => {
+        //                 const updatedCart = prevCart.map(items =>
+        //                     items.productname === productname
+        //                         ? { ...items, stock: items.stock + 1 }
+        //                         : items
+        //                 );
                         
-                        return updatedCart;
-                    });
-                } else {
-                    setCart(prevCart => {
-                        const updatedCart = [
-                            ...prevCart,
-                            { productname, stock: 1, price, image }
-                        ];
+        //                 return updatedCart;
+        //             });
+        //         } else {
+        //             setCart(prevCart => {
+        //                 const updatedCart = [
+        //                     ...prevCart,
+        //                     { productname, stock: 1, price, image }
+        //                 ];
                         
-                        return updatedCart;
-                    });
-                }
-                onPurchase({ image, productname, price, stock });
+        //                 return updatedCart;
+        //             });
+        //         }
+        //         onPurchase({ image, productname, price, stock });
             
+        // }
+        //console.log(cart)
+        setCart([...cart, { productname, price, stock, image }]);
+
+        if (stock > 0){
+            onPurchase({image, productname, price, stock});
         }
+        //console.log(handleCart);
     };
     return(
         <div className="productBox">

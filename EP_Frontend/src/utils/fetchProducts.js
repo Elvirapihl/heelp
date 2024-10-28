@@ -29,13 +29,13 @@ export async function updateStock(products){
 
     const res = await fetch(url,{
         method: "POST",
-        body: JSON.stringify([productNames]),
+        body: JSON.stringify([products]),
         headers: {
           "Content-type": "application/json; charset=UTF-8"
         }
       });
       res.json("");
-      return products;
+      return productNames;
   
    // const data = await res.json();
    // console.log(data);
