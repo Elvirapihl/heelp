@@ -15,9 +15,10 @@ app.get('/api/productslist', async (req, res) =>{
 })
 app.post('/api/productslist/set', async(req, res) => {
 
+    let items = await db.getAllProducts();
     console.log(req.body);
 
-    db.updateStock(req.body)
+    items = await db.updateStock(req.body)
 
     res.json([db.updateStock]);
 });
@@ -25,3 +26,8 @@ app.post('/api/productslist/set', async(req, res) => {
 app.listen(PORT, ()=> {
     console.log("Listening on port", PORT);
 });
+
+// let items = await db.getAllProducts();
+//     await db.updateStock(req.body);
+//     const updatedItems = await db.getAllProducts(items);
+//     res.json(updatedItems);

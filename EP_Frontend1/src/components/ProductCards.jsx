@@ -14,7 +14,7 @@ export function ProductCards({image, productname, price,stock,cart,setCart, onHa
             <h2>{productname}</h2>
             <p>Pris: {price} kr</p>
             <p>Lagersaldo: {stock} st</p>
-            <button className="buyButton" onClick={handleCart} disabled={stock === 0}>Köp</button>
+            <button className="buyButton" onClick={handleCart} disabled={stock === 0}>Lägg i kundvagn</button>
         </div>
     )
     
