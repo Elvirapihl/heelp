@@ -29,7 +29,7 @@ export async function updateStock(products){
 
     const res = await fetch(url,{
         method: "POST",
-        body: JSON.stringify([products]),
+        body: JSON.stringify(["kaffe", "kaffe"]),
         headers: {
           "Content-type": "application/json; charset=UTF-8"
         }

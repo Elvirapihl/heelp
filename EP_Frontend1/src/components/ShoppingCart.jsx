@@ -1,4 +1,6 @@
-export function ShoppingCart({setChangePage, cart, setCart, products, setProducts, setCartItems, onHandleStock}){
+import {updateStock} from "../utils/fetchProducts.js";
+
+export function ShoppingCart({setChangePage, cart, setCart, products, setProducts, setCartItems}){
 
     let totalPrice = 0;
     for (const cartProduct of cart){
@@ -6,6 +8,7 @@ export function ShoppingCart({setChangePage, cart, setCart, products, setProduct
     }
     console.log(cart);
     function handleBuy(paymentConfirmation){
+        updateStock([""]);
         handleClearCart();
         setChangePage(paymentConfirmation)
     }
