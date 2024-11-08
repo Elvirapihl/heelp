@@ -6,11 +6,19 @@ export function ShoppingCart({setChangePage, cart, setCart, products, setProduct
     for (const cartProduct of cart){
         totalPrice = totalPrice + cartProduct.price;
     }
-    console.log(cart);
+    
     function handleBuy(paymentConfirmation){
-        updateStock([""]);
+        console.log(cart);
+        //Göra om array med object till en array med strings.
+        const productNames = cart.map(item => item.productname);
+
+        updateStock(productNames);
         handleClearCart();
         setChangePage(paymentConfirmation)
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 900);
     }
 
     function handleClearCart(){

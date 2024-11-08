@@ -14,8 +14,8 @@ export function App(){
     const [cartItems, setCartItems] = useState([]);
 
     const handleStock = (productItem) => {
-        const updateStock = products.map(product => product.productname === productItem.productname ?{...product, stock: product.stock-1} :product ); 
-        setProducts(updateStock);
+        // const updateStock = products.map(product => product.productname === productItem.productname ?{...product, stock: product.stock-1} :product ); 
+        //setProducts(updateStock);
         setCartItems([...cartItems, productItem]);
     };
     //console.log(cart);
