@@ -9,7 +9,6 @@ export function ShoppingCart({setChangePage, cart, setCart, products, setProduct
     
     function handleBuy(paymentConfirmation){
         console.log(cart);
-        //Göra om array med object till en array med strings.
         const productNames = cart.map(item => item.productname);
 
         updateStock(productNames);

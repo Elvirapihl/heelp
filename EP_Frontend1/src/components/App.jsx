@@ -4,7 +4,7 @@ import { ShoppingCart } from "./ShoppingCart";
 import { Error } from "./Error.jsx";
 import { PaymentConfirmed } from "./PaymentConfirmed.jsx";
 import { useEffect, useState } from "react";
-import { fetchProducts, updateStock } from "../utils/fetchProducts.js";
+import { fetchProducts } from "../utils/fetchProducts.js";
 
 export function App(){
 
@@ -14,25 +14,18 @@ export function App(){
     const [cartItems, setCartItems] = useState([]);
 
     const handleStock = (productItem) => {
-        // const updateStock = products.map(product => product.productname === productItem.productname ?{...product, stock: product.stock-1} :product ); 
-        //setProducts(updateStock);
         setCartItems([...cartItems, productItem]);
     };
-    //console.log(cart);
-
 
     useEffect(() =>{
         fetchProducts()
             .then((productsPar)=>{ 
-                //console.log(productsPar);
+                
                 setProducts(productsPar); 
                 setChangePage('browsing') })
-                //.then(updateStock) något sånt här tror jag(Oklart)
             .catch(()=>{ setChangePage('error')} );
     }, [])
-    //const status = 'browsing';
-    //console.log(setCart);
-
+   
     return(
         <>
         <header>

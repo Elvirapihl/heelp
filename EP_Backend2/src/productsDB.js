@@ -15,10 +15,10 @@ async function updateStock(products){
     // För varje namn i products behöver du leta upp matchande produkt i dbItems och sätta stock till stock minus ett
 
     for(const productString of products ){
-        console.log(productString, 'yttre');
+        //console.log(productString, 'yttre');
 
         for(const productOb of dbItems){
-            console.log(productOb.stock, 'inre');
+            //console.log(productOb.stock, 'inre');
             if (productOb.productname === productString) {
                 // Uppdatera lagersaldo, till exempel minska lagret med 1
                 productOb.stock--;
